@@ -1,0 +1,372 @@
+/* ==================================
+   HOOD MA - Traditional Theme
+   Designed by Aref Kiani
+================================== */
+
+:root {
+  --green: #244637;
+  --green-light: #3e6950;
+  --cream: #faf5e9;
+  --sand: #e9d9ba;
+  --gold: #c49a52;
+  --brown: #78583b;
+  --text: #302c26;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 2;
+}
+
+/* ===== Header ===== */
+
+header {
+  background: rgba(36,70,55,.97);
+  color: white;
+  padding: 14px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 18px rgba(0,0,0,.12);
+  border-bottom: 3px solid var(--gold);
+}
+
+.logo {
+  font-size: 29px;
+  font-weight: 900;
+  color: #f5d99d;
+  letter-spacing: -1px;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: .25s;
+}
+
+nav a:hover {
+  color: #f5d99d;
+}
+
+/* ===== Hero ===== */
+
+.hero {
+  min-height: 560px;
+  position: relative;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(24,52,37,.88),
+      rgba(86,68,43,.75)
+    );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 2px solid rgba(244,215,157,.35);
+  border-radius: 180px 180px 15px 15px;
+  pointer-events: none;
+}
+
+.hero > div {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 72px);
+  margin: 0;
+  font-weight: 900;
+  color: #f9dda4;
+  text-shadow: 0 5px 20px rgba(0,0,0,.25);
+}
+
+.hero p {
+  font-size: 19px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 34px;
+  background: var(--gold);
+  color: #222;
+  border-radius: 35px;
+  text-decoration: none;
+  margin-top: 25px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #f0cd85;
+  transform: translateY(-3px);
+}
+
+/* ===== Sections ===== */
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  color: var(--green);
+  margin-bottom: 45px;
+}
+
+.section-title::after {
+  content: "◆";
+  display: block;
+  color: var(--gold);
+  font-size: 18px;
+  margin: 5px auto;
+}
+
+/* ===== Introduction ===== */
+
+.intro {
+  background: #fffdf7;
+  padding: 40px;
+  border-radius: 18px;
+  border: 1px solid var(--sand);
+  border-right: 6px solid var(--gold);
+  box-shadow: 0 8px 35px rgba(60,40,20,.06);
+}
+
+/* ===== Cards ===== */
+
+.cards {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #fffdf8;
+  border-radius: 18px;
+  padding: 30px;
+  border: 1px solid #e9dcc3;
+  box-shadow: 0 8px 25px rgba(60,40,20,.06);
+  transition: .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--gold);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(60,40,20,.12);
+}
+
+.card h3 {
+  color: var(--green);
+}
+
+.icon {
+  font-size: 42px;
+}
+
+/* ===== Historical Section ===== */
+
+.history {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #eee3ce,
+      #eee3ce 12px,
+      #f1e7d5 12px,
+      #f1e7d5 24px
+    );
+}
+
+.history-box {
+  background: #fffaf0;
+  padding: 40px;
+  border-radius: 18px;
+  border: 1px solid #d5bf96;
+  box-shadow: 0 10px 30px rgba(70,45,20,.08);
+}
+
+.castles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.castles span {
+  background: #f0e0c2;
+  color: var(--brown);
+  padding: 9px 20px;
+  border-radius: 30px;
+  border: 1px solid #ddc59a;
+}
+
+/* ===== Gallery ===== */
+
+.gallery {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.photo {
+  height: 220px;
+  background:
+    linear-gradient(135deg, #dfcba5, #a58b66);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #493720;
+  font-weight: bold;
+  border: 4px solid white;
+  box-shadow: 0 7px 25px rgba(0,0,0,.1);
+  transition: .3s;
+  overflow: hidden;
+}
+
+.photo:hover {
+  transform: scale(1.03);
+}
+
+/* ===== Village Statistics ===== */
+
+.info {
+  background:
+    linear-gradient(135deg, #244637, #365c43);
+  color: white;
+}
+
+.info .section-title {
+  color: #fff;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr));
+  gap: 22px;
+  text-align: center;
+}
+
+.stat {
+  padding: 30px 20px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 18px;
+  background: rgba(255,255,255,.05);
+}
+
+.stat strong {
+  display: block;
+  font-size: 36px;
+  color: #f5d99d;
+}
+
+.notice {
+  font-size: 13px;
+  opacity: .85;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* ===== Footer ===== */
+
+footer {
+  background: #152c20;
+  color: white;
+  padding: 45px 20px;
+  text-align: center;
+  border-top: 5px solid var(--gold);
+}
+
+footer strong {
+  color: #f5d99d;
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 768px) {
+
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 440px;
+  }
+
+  .hero::before {
+    border-radius: 100px 100px 12px 12px;
+  }
+
+  .container {
+    padding: 55px 18px;
+  }
+
+  .section-title {
+    font-size: 25px;
+  }
+
+  .intro,
+  .history-box {
+    padding: 25px;
+  }
+
+}
