@@ -6,16 +6,18 @@
 
 <title>هود ما | پایگاه فرهنگی و تاریخی روستای هود</title>
 
-<meta name="description" content="آشنایی با تاریخچه، طبیعت، فرهنگ و اماکن مذهبی روستای هود، شهرستان اوز، استان فارس">
+<meta name="description" content="پایگاه فرهنگی، تاریخی و گردشگری روستای هود، شهرستان اوز، استان فارس. آشنایی با تاریخچه، قلعه‌های تاریخی، مساجد، طبیعت و فرهنگ هود.">
 
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --green: #294c3b;
-  --cream: #f8f2e7;
-  --gold: #c69c54;
-  --brown: #654a35;
+  --green: #193e32;
+  --green2: #285743;
+  --gold: #cba769;
+  --cream: #faf6ee;
+  --sand: #e9ddc8;
+  --text: #292d29;
 }
 
 * {
@@ -28,39 +30,46 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Vazirmatn', sans-serif;
+  font-family: Vazirmatn, sans-serif;
   background: var(--cream);
-  color: #333;
-  line-height: 2;
+  color: var(--text);
+  line-height: 1.9;
+}
+
+a {
+  text-decoration: none;
 }
 
 header {
-  background: var(--green);
-  color: white;
-  padding: 15px 7%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(25,62,50,.97);
+  border-bottom: 2px solid var(--gold);
+  padding: 13px 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
 }
 
 .logo {
-  font-size: 27px;
+  color: #f3d69c;
   font-weight: 900;
-  color: #f4d99b;
+  font-size: 28px;
+  white-space: nowrap;
 }
 
 nav {
   display: flex;
-  gap: 20px;
+  gap: 22px;
   flex-wrap: wrap;
 }
 
 nav a {
   color: white;
-  text-decoration: none;
   font-size: 14px;
+  transition: .2s;
 }
 
 nav a:hover {
@@ -68,186 +77,350 @@ nav a:hover {
 }
 
 .hero {
-  min-height: 470px;
+  min-height: 610px;
   background:
-    linear-gradient(135deg, rgba(25,55,40,.93), rgba(80,65,40,.8));
+    linear-gradient(135deg,rgba(14,46,34,.94),rgba(58,69,39,.78));
+  color: white;
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
-  padding: 40px 20px;
+  padding: 80px 25px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 25px;
+  border: 2px solid rgba(230,195,130,.45);
+  border-radius: 180px 180px 15px 15px;
+  pointer-events: none;
+}
+
+.palm {
+  position: absolute;
+  font-size: 180px;
+  bottom: -25px;
+  opacity: .65;
+  z-index: 1;
+}
+
+.palm.right {
+  right: 1%;
+}
+
+.palm.left {
+  left: 1%;
+  transform: scaleX(-1);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-label {
+  color: #e5c48b;
+  letter-spacing: 2px;
+  font-size: 14px;
 }
 
 .hero h1 {
-  font-size: clamp(35px, 6vw, 65px);
-  margin: 0;
-  color: #f7d795;
+  font-size: clamp(50px,8vw,95px);
+  color: #f5d89d;
+  margin: 8px 0;
+  font-weight: 900;
 }
 
 .hero p {
-  font-size: 19px;
+  font-size: 20px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 35px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 11px 28px;
   background: var(--gold);
-  color: #222;
-  border-radius: 30px;
-  text-decoration: none;
-  margin-top: 20px;
-  font-weight: bold;
+  color: #1c3025;
+  padding: 12px 32px;
+  border-radius: 35px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  background: #f2d397;
+}
+
+.btn.outline {
+  background: transparent;
+  color: white;
+  border: 1px solid var(--gold);
 }
 
 .container {
   max-width: 1150px;
   margin: auto;
-  padding: 65px 20px;
+  padding: 85px 22px;
 }
 
-.section-title {
+.section-heading {
   text-align: center;
-  font-size: 30px;
-  color: var(--green);
-  margin-bottom: 35px;
+  margin-bottom: 45px;
 }
 
-.section-title::after {
-  content: "";
+.section-heading small {
+  color: #9b7744;
+  font-weight: 700;
+}
+
+.section-heading h2 {
+  font-size: clamp(26px,4vw,38px);
+  color: var(--green);
+  margin: 7px 0;
+}
+
+.section-heading::after {
+  content: "◆";
   display: block;
-  width: 75px;
-  height: 4px;
-  background: var(--gold);
-  margin: 12px auto;
-  border-radius: 5px;
+  color: var(--gold);
+  margin-top: 10px;
 }
 
-.intro {
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-  border-right: 5px solid var(--gold);
-  box-shadow: 0 5px 25px rgba(0,0,0,.05);
-}
-
-.cards {
+.about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 22px;
-}
-
-.card {
-  background: white;
-  border-radius: 17px;
-  padding: 27px;
-  box-shadow: 0 5px 20px rgba(0,0,0,.06);
-  transition: .3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-}
-
-.card h3 {
-  color: var(--green);
-}
-
-.icon {
-  font-size: 35px;
-}
-
-.history {
-  background: #eee5d5;
-}
-
-.history-box {
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-}
-
-.castles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.castles span {
-  background: #f4ead8;
-  color: var(--brown);
-  padding: 8px 17px;
-  border-radius: 25px;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-}
-
-.photo {
-  height: 200px;
-  background: linear-gradient(135deg, #d9c7a8, #a88e6a);
-  border-radius: 15px;
-  display: flex;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 35px;
   align-items: center;
+}
+
+.about-text {
+  background: white;
+  padding: 38px;
+  border-radius: 20px;
+  border-right: 5px solid var(--gold);
+  box-shadow: 0 12px 35px rgba(0,0,0,.05);
+}
+
+.about-art {
+  background: linear-gradient(145deg,#d8c29c,#8ca58d);
+  min-height: 360px;
+  border-radius: 170px 170px 20px 20px;
+  display: flex;
   justify-content: center;
-  color: #443322;
-  font-weight: bold;
-}
-
-.info {
-  background: var(--green);
-  color: white;
-}
-
-.info .section-title {
-  color: white;
+  align-items: center;
+  font-size: 110px;
+  border: 10px solid white;
+  box-shadow: 0 15px 40px rgba(0,0,0,.1);
 }
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  grid-template-columns: repeat(3,1fr);
   gap: 20px;
-  text-align: center;
+  margin-top: 35px;
 }
 
 .stat {
-  padding: 25px;
-  border: 1px solid rgba(255,255,255,.25);
+  background: #f0e7d7;
+  padding: 23px;
   border-radius: 15px;
+  text-align: center;
 }
 
 .stat strong {
   display: block;
-  font-size: 30px;
-  color: #f4d99b;
+  color: var(--green);
+  font-size: 27px;
 }
 
-.notice {
-  font-size: 13px;
-  opacity: .8;
+.history {
+  background: #eee4d3;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  transition: .3s;
+  border: 1px solid #e8dfd0;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+}
+
+.card-image {
+  height: 210px;
+  background: linear-gradient(135deg,#ceb88d,#8b795e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+.card-body h3 {
+  color: var(--green);
+  margin-top: 0;
+}
+
+.card-body p {
+  font-size: 14px;
+  color: #666;
+}
+
+.tag {
+  display: inline-block;
+  background: #f3ead9;
+  color: #82643c;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.nature {
+  background: var(--green);
+  color: white;
+}
+
+.nature .section-heading h2 {
+  color: white;
+}
+
+.nature .section-heading small {
+  color: #e4c68d;
+}
+
+.nature .card-body h3 {
+  color: var(--green);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  height: 235px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #d8c4a0;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .4s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 15px;
+  background: linear-gradient(transparent,rgba(0,0,0,.75));
+  color: white;
+}
+
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+}
+
+.placeholder span {
+  font-size: 15px;
   text-align: center;
-  margin-top: 25px;
+}
+
+.community {
+  background: #e9ddc8;
+  text-align: center;
+}
+
+.community-box {
+  max-width: 750px;
+  margin: auto;
+  background: white;
+  padding: 45px 30px;
+  border-radius: 22px;
+  border: 2px solid var(--gold);
+}
+
+.community-box h2 {
+  color: var(--green);
 }
 
 footer {
-  background: #172e23;
+  background: #112b20;
   color: white;
-  padding: 35px 20px;
+  padding: 55px 20px 25px;
   text-align: center;
+  border-top: 5px solid var(--gold);
 }
 
-footer strong {
-  color: #f4d99b;
+footer h2 {
+  color: #f4d69c;
+  font-size: 32px;
 }
 
-@media(max-width: 600px) {
+footer a {
+  color: #f4d69c;
+}
+
+.footer-bottom {
+  border-top: 1px solid #3d5a49;
+  margin: 30px auto 0;
+  padding-top: 20px;
+  max-width: 850px;
+  font-size: 14px;
+}
+
+.footer-bottom strong {
+  color: #f4d69c;
+}
+
+@media(max-width:800px) {
   header {
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
   }
 
   nav {
@@ -255,16 +428,45 @@ footer strong {
     gap: 12px;
   }
 
-  .container {
-    padding: 45px 18px;
+  nav a {
+    font-size: 12px;
   }
 
   .hero {
-    min-height: 380px;
+    min-height: 530px;
+  }
+
+  .palm {
+    font-size: 100px;
+    opacity: .35;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 60px 18px;
+  }
+
+  .about-text {
+    padding: 25px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
   }
 }
 </style>
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -277,271 +479,366 @@ footer strong {
     <a href="#about">معرفی هود</a>
     <a href="#history">تاریخچه</a>
     <a href="#nature">طبیعت</a>
-    <a href="#mosques">اماکن مذهبی</a>
-    <a href="#gallery">تصاویر</a>
+    <a href="#mosques">مساجد</a>
+    <a href="#gallery">گالری</a>
+    <a href="#community">مشارکت اهالی</a>
   </nav>
 </header>
 
 <section class="hero" id="home">
-  <div>
-    <h1>به هود خوش آمدید</h1>
-    <p>سرزمین تاریخ، طبیعت و اصالت</p>
-    <p>روستای هود | شهرستان اوز | استان فارس</p>
-    <a href="#about" class="btn">هود را بیشتر بشناسیم</a>
+
+  <div class="palm right">🌴</div>
+  <div class="palm left">🌴</div>
+
+  <div class="hero-content">
+    <div class="hero-label">
+      پایگاه فرهنگی، تاریخی و گردشگری روستای هود
+    </div>
+
+    <h1>هــود مــا</h1>
+
+    <p>روایتی از تاریخ، فرهنگ و اصالت</p>
+
+    <p>📍 روستای هود | شهرستان اوز | استان فارس</p>
+
+    <div class="hero-buttons">
+      <a href="#about" class="btn">کشف روستای هود</a>
+      <a href="#gallery" class="btn outline">تماشای تصاویر</a>
+    </div>
   </div>
+
 </section>
 
 <section class="container" id="about">
 
-  <h2 class="section-title">🌴 روستای هود را بشناسیم</h2>
+  <div class="section-heading">
+    <small>WELCOME TO HOOD</small>
+    <h2>🌴 هود را بهتر بشناسیم</h2>
+  </div>
 
-  <div class="intro">
+  <div class="about-grid">
 
-    <p>
-      روستای هود از روستاهای تاریخی استان فارس است
-      که در شهرستان اوز قرار دارد.
-    </p>
+    <div class="about-text">
+      <h3>روستایی با پیشینه تاریخی در جنوب فارس</h3>
 
-    <p>
-      این روستا در ارتفاع تقریبی ۹۵۰ متری از سطح دریا
-      واقع شده و از شمال با روستای کاریان و از شرق
-      با روستاهای بیدشهر و کوره هم‌جوار است.
-    </p>
+      <p>
+        روستای هود در شهرستان اوز استان فارس
+        قرار دارد و ارتفاع آن از سطح دریا
+        حدود ۹۵۰ متر است.
+      </p>
 
-    <p>
-      هود به دلیل موقعیت طبیعی ویژه خود در دامنه
-      کوهستان‌ها و برخورداری از منابع آب شیرین زیرزمینی،
-      از ویژگی‌های جغرافیایی ارزشمندی برخوردار است.
-    </p>
+      <p>
+        این روستا از سمت شمال با روستای کاریان
+        و از سمت شرق با روستاهای بیدشهر و کوره
+        و دریاچه‌ای فصلی هم‌جوار است.
+      </p>
+
+      <p>
+        هود به دلیل موقعیت جغرافیایی ویژه
+        و منابع آب شیرین زیرزمینی،
+        از مناطق ارزشمند طبیعی منطقه به شمار می‌رود.
+      </p>
+    </div>
+
+    <div class="about-art">🌴</div>
+
+  </div>
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong>۹۵۰ متر</strong>
+      ارتفاع از سطح دریا
+    </div>
+
+    <div class="stat">
+      <strong>۱۳۱۴ نفر</strong>
+      جمعیت طبق آمار سال ۱۳۹۲
+    </div>
+
+    <div class="stat">
+      <strong>۳۴۷ خانوار</strong>
+      طبق آمار سال ۱۳۹۲
+    </div>
 
   </div>
 
 </section>
 
 <section class="history" id="history">
-
   <div class="container">
 
-    <h2 class="section-title">📜 تاریخچه روستای هود</h2>
+    <div class="section-heading">
+      <small>HISTORY & HERITAGE</small>
+      <h2>🏰 تاریخ و آثار تاریخی هود</h2>
+    </div>
 
-    <div class="history-box">
+    <p>
+      آثار تاریخی باقی‌مانده در روستای هود
+      نشان‌دهنده پیشینه تاریخی این منطقه هستند.
+      در منابع محلی، قدمت برخی آثار به دوران
+      پیش از اسلام نسبت داده شده است.
+    </p>
 
-      <p>
-        روستای هود دارای پیشینه‌ای تاریخی است.
-        بر اساس روایت‌های محلی و آثار تاریخی باقی‌مانده،
-        احتمال می‌رود قدمت سکونت در این منطقه
-        به دوران پیش از اسلام بازگردد.
-      </p>
+    <div class="cards">
 
-      <p>
-        نام هود در برخی منابع تاریخی از جمله
-        فارسنامه ناصری و آثار العجم ذکر شده است.
-      </p>
+      <article class="card">
+        <div class="card-image">
+          <img
+            src="https://s5.picofile.com/file/8106535884/%D9%82%D9%84%D8%B9%D9%87_%D8%AC%D9%87%D9%86%D9%88.jpg"
+            alt="قلعه تاریخی جهنو در روستای هود"
+            loading="lazy">
+        </div>
 
-      <p>
-        از شخصیت‌های تاریخی مرتبط با هود می‌توان
-        به فضلعلی قلعه‌تیری هودی اشاره کرد
-        که نام او در روایت‌هایی از رویدادهای
-        دوره قاجار آمده است.
-      </p>
+        <div class="card-body">
+          <span class="tag">اثر تاریخی</span>
+          <h3>قلعه جهان‌آباد (جهنو)</h3>
+          <p>
+            قلعه جهنو از آثار تاریخی معرفی‌شده
+            در منابع محلی روستای هود است.
+          </p>
+        </div>
+      </article>
 
-      <h3>🏰 قلعه‌های تاریخی هود</h3>
+      <article class="card">
+        <div class="card-image">🏰</div>
+        <div class="card-body">
+          <span class="tag">اثر تاریخی</span>
+          <h3>قلعه تمب پس تمب</h3>
+          <p>
+            یکی از قلعه‌های تاریخی هود
+            که نام آن در معرفی پیشینه روستا آمده است.
+          </p>
+        </div>
+      </article>
 
-      <div class="castles">
-        <span>قلعه تمب پس تمب</span>
-        <span>قلعه زیردژ</span>
-        <span>قلعه شهرستان</span>
-        <span>قلعه خندقی</span>
-        <span>قلعه جهان‌آباد (جهنو)</span>
-      </div>
+      <article class="card">
+        <div class="card-image">🏛️</div>
+        <div class="card-body">
+          <span class="tag">اثر تاریخی</span>
+          <h3>قلعه زیردژ</h3>
+          <p>
+            از دیگر آثار تاریخی روستای هود
+            که نیازمند بررسی و مستندسازی بیشتر است.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">🏰</div>
+        <div class="card-body">
+          <span class="tag">اثر تاریخی</span>
+          <h3>قلعه شهرستان</h3>
+          <p>
+            از قلعه‌هایی که در منابع محلی
+            درباره تاریخ روستای هود ذکر شده است.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">🏛️</div>
+        <div class="card-body">
+          <span class="tag">اثر تاریخی</span>
+          <h3>قلعه خندقی</h3>
+          <p>
+            یکی از آثار تاریخی نام‌برده‌شده
+            در معرفی روستای هود.
+          </p>
+        </div>
+      </article>
 
     </div>
 
-  </div>
-
-</section>
-
-<section class="container" id="nature">
-
-  <h2 class="section-title">🌿 طبیعت و زندگی در هود</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="icon">🌳</div>
-      <h3>پوشش گیاهی</h3>
-      <p>
-        درخت کنار، بادام کوهی، آویشن،
-        بابونه و گیاهان مرتعی از پوشش
-        گیاهی منطقه هود هستند.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">⛰️</div>
-      <h3>کوهستان و حیات وحش</h3>
-      <p>
-        کوهستان‌های اطراف هود زیستگاه
-        گونه‌های مختلف جانوری بوده‌اند؛
-        از جمله قوچ وحشی لارستانی.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🌾</div>
-      <h3>کشاورزی</h3>
-      <p>
-        کشاورزی از فعالیت‌های اقتصادی
-        روستا بوده و آبیاری زمین‌ها
-        عمدتاً با استفاده از منابع آب زیرزمینی
-        انجام می‌شود.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">💧</div>
-      <h3>منابع آب</h3>
-      <p>
-        وجود منابع آب شیرین زیرزمینی
-        یکی از ویژگی‌های مهم طبیعی
-        روستای هود به شمار می‌رود.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="history" id="mosques">
-
-  <div class="container">
-
-    <h2 class="section-title">🕌 مساجد و اماکن مذهبی هود</h2>
-
-    <div class="intro">
-
-      <p>
-        مساجد روستای هود از مراکز مهم
-        فرهنگی، مذهبی و اجتماعی روستا هستند.
-      </p>
-
-      <p>
-        بر اساس اطلاعات ثبت‌شده در سال ۱۳۹۲،
-        روستای هود دارای هفت مسجد بوده است.
-      </p>
-
-      <p>
-        به‌زودی اطلاعات و تصاویر مساجد
-        و اماکن مذهبی روستا در این بخش
-        قرار خواهد گرفت.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="container" id="gallery">
-
-  <h2 class="section-title">📸 گالری تصاویر هود</h2>
-
-  <div class="gallery">
-    <div class="photo">🏡 تصاویر روستا</div>
-    <div class="photo">🕌 مساجد هود</div>
-    <div class="photo">🌴 طبیعت هود</div>
-    <div class="photo">🏰 آثار تاریخی</div>
-  </div>
-
-  <p style="text-align:center">
-    تصاویر واقعی روستای هود به‌زودی اضافه خواهند شد.
-  </p>
-
-</section>
-
-<section class="info">
-
-  <div class="container">
-
-    <h2 class="section-title">📍 هود در یک نگاه</h2>
-
-    <div class="stats">
-
-      <div class="stat">
-        <strong>۹۵۰</strong>
-        متر ارتفاع از سطح دریا
-      </div>
-
-      <div class="stat">
-        <strong>۱۳۱۴</strong>
-        نفر جمعیت در سال ۱۳۹۲
-      </div>
-
-      <div class="stat">
-        <strong>۳۴۷</strong>
-        خانوار در سال ۱۳۹۲
-      </div>
-
-      <div class="stat">
-        <strong>۷</strong>
-        مسجد طبق اطلاعات سال ۱۳۹۲
-      </div>
-
-    </div>
-
-    <p class="notice">
-      آمار جمعیت و امکانات مربوط به اطلاعات منتشرشده در سال ۱۳۹۲ است.
+    <p>
+      در روایت‌های تاریخی مربوط به دوره قاجار،
+      از فضلعلی قلعه‌تیری هودی و مبارزات او
+      نیز یاد شده است.
     </p>
 
   </div>
-
 </section>
 
-<section class="container">
+<section class="nature" id="nature">
+  <div class="container">
 
-  <h2 class="section-title">📖 خاطرات و فرهنگ هود</h2>
+    <div class="section-heading">
+      <small>NATURE OF HOOD</small>
+      <h2>🌿 طبیعت زیبای هود</h2>
+    </div>
 
-  <div class="intro">
+    <div class="cards">
+
+      <article class="card">
+        <div class="card-image">🌴</div>
+        <div class="card-body">
+          <h3>پوشش گیاهی</h3>
+          <p>
+            درخت کنار، بادام کوهی،
+            آویشن، بابونه و گیاهان مرتعی
+            از پوشش گیاهی منطقه هستند.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">⛰️</div>
+        <div class="card-body">
+          <h3>کوهستان‌های هود</h3>
+          <p>
+            ناهمواری‌های کوهستانی اطراف هود
+            بخش مهمی از چشم‌انداز طبیعی
+            این روستا را تشکیل می‌دهند.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">💧</div>
+        <div class="card-body">
+          <h3>منابع آب شیرین</h3>
+          <p>
+            برخورداری از منابع آب شیرین زیرزمینی
+            از ویژگی‌های طبیعی مهم
+            روستای هود است.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="container" id="mosques">
+
+  <div class="section-heading">
+    <small>RELIGIOUS PLACES</small>
+    <h2>🕌 مساجد و اماکن مذهبی</h2>
+  </div>
+
+  <div class="about-text">
+    <h3>میراث فرهنگی و مذهبی هود</h3>
 
     <p>
-      روستای هود سرشار از خاطرات،
-      روایت‌های تاریخی، آداب‌ورسوم
-      و فرهنگ ارزشمند مردمان خود است.
+      مساجد روستای هود نقش مهمی
+      در زندگی فرهنگی، مذهبی و اجتماعی
+      مردم روستا دارند.
     </p>
 
     <p>
-      این بخش در آینده به محلی برای
-      ثبت خاطرات، تصاویر قدیمی و
-      روایت‌های اهالی هود تبدیل خواهد شد.
+      طبق اطلاعات سال ۱۳۹۲،
+      در روستای هود هفت مسجد وجود داشته است.
     </p>
 
+    <p>
+      به‌زودی نام، تاریخچه و تصاویر
+      مساجد روستا در این بخش منتشر خواهد شد.
+    </p>
   </div>
 
+</section>
+
+<section class="history" id="gallery">
+  <div class="container">
+
+    <div class="section-heading">
+      <small>PHOTO GALLERY</small>
+      <h2>📸 گالری تصاویر هود</h2>
+    </div>
+
+    <div class="gallery">
+
+      <a
+        class="gallery-item"
+        href="https://s5.picofile.com/file/8106535884/%D9%82%D9%84%D8%B9%D9%87_%D8%AC%D9%87%D9%86%D9%88.jpg"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <img
+          src="https://s5.picofile.com/file/8106535884/%D9%82%D9%84%D8%B9%D9%87_%D8%AC%D9%87%D9%86%D9%88.jpg"
+          alt="تصویر قلعه جهنو"
+          loading="lazy">
+
+        <span>قلعه تاریخی جهنو</span>
+      </a>
+
+      <div class="gallery-item placeholder">
+        🌴
+        <span>تصاویر طبیعت هود به‌زودی</span>
+      </div>
+
+      <div class="gallery-item placeholder">
+        🕌
+        <span>تصاویر مساجد به‌زودی</span>
+      </div>
+
+      <div class="gallery-item placeholder">
+        🏡
+        <span>تصاویر قدیمی روستا به‌زودی</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="community" id="community">
+  <div class="container">
+
+    <div class="community-box">
+
+      <h2>❤️ هود را با خاطرات شما زنده نگه می‌داریم</h2>
+
+      <p>
+        هر کوچه، هر خانه قدیمی و هر تصویر
+        از روستای هود داستانی برای گفتن دارد.
+      </p>
+
+      <p>
+        هدف ما ثبت و نگهداری تاریخ،
+        فرهنگ و خاطرات مردم هود
+        برای نسل‌های آینده است.
+      </p>
+
+      <p>
+        امکان ارسال خاطرات و تصاویر
+        توسط اهالی به‌زودی فعال خواهد شد.
+      </p>
+
+    </div>
+
+  </div>
 </section>
 
 <footer>
 
   <h2>🌴 هود ما</h2>
 
-  <p>پایگاه فرهنگی، تاریخی و اجتماعی روستای هود</p>
+  <p>پایگاه فرهنگی، تاریخی و گردشگری روستای هود</p>
 
-  <p>شهرستان اوز | استان فارس</p>
+  <p>📍 شهرستان اوز | استان فارس</p>
 
   <p>
-    منبع اطلاعات تاریخی:
-    <a href="https://farhangehood.blogfa.com/post/2"
-       target="_blank"
-       rel="noopener noreferrer"
-       style="color:#f4d99b">
+    منبع اطلاعات:
+    <a
+      href="https://farhangehood.blogfa.com/post/2"
+      target="_blank"
+      rel="noopener noreferrer">
       وبلاگ فرهنگ هود
     </a>
   </p>
 
-  <hr style="border-color:#476052;max-width:500px">
+  <div class="footer-bottom">
 
-  <p>© ۱۴۰۵ هود ما | تمامی حقوق محفوظ است</p>
+    <p>© ۱۴۰۵ هود ما | تمامی حقوق محفوظ است</p>
 
-  <p>💻 طراحی و توسعه توسط <strong>عارف کیانی</strong></p>
+    <p>
+      💻 طراحی و توسعه توسط
+      <strong>عارف کیانی</strong>
+    </p>
+
+  </div>
 
 </footer>
 
