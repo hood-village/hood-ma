@@ -588,6 +588,104 @@ footer a {
   font-size: 14px;
   color: #666;
 }
+  /* ===== امکانات و خدمات روستای هود ===== */
+
+.facilities-section {
+  background: linear-gradient(180deg, #f4ecdd, #faf6ee);
+}
+
+.facilities-intro {
+  max-width: 800px;
+  margin: 0 auto 45px;
+  text-align: center;
+  color: #665c4e;
+  font-size: 16px;
+}
+
+.facilities-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 18px;
+  margin-bottom: 45px;
+}
+
+.facility-stat {
+  background: #193e32;
+  color: white;
+  padding: 25px 15px;
+  border-radius: 18px;
+  text-align: center;
+  border-bottom: 4px solid #cba769;
+}
+
+.facility-stat strong {
+  display: block;
+  font-size: 30px;
+  color: #f3d69c;
+}
+
+.facility-stat span {
+  font-size: 13px;
+}
+
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.facility-card {
+  background: #fffdf8;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #e5d3b4;
+  box-shadow: 0 8px 25px rgba(0,0,0,.06);
+  transition: .3s;
+}
+
+.facility-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.11);
+}
+
+.facility-icon {
+  width: 65px;
+  height: 65px;
+  background: #e9ddc8;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.facility-card h3 {
+  color: #193e32;
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+
+.facility-card ul {
+  padding-right: 20px;
+  color: #555;
+  font-size: 14px;
+  line-height: 2.4;
+}
+
+.facility-card li::marker {
+  color: #cba769;
+}
+
+@media(max-width:600px) {
+  .facilities-stats {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .facility-card {
+    padding: 24px;
+  }
+}
 </style>
 </head>
 
@@ -597,6 +695,7 @@ footer a {
   <div class="logo">🌴 هود ما</div>
 
   <nav>
+    <a href="#facilities">امکانات روستا</a>
     <a href="#home">خانه</a>
     <a href="#elders">بزرگان هود</a>
     <a href="#about">معرفی هود</a>
@@ -985,6 +1084,138 @@ footer a {
     </div>
 
   </div>
+
+</section>
+  <!-- امکانات و خدمات روستای هود -->
+
+<section class="facilities-section" id="facilities">
+
+<div class="container">
+
+  <div class="section-heading">
+    <small>HOOD VILLAGE FACILITIES</small>
+    <h2>🏡 امکانات و خدمات روستای هود</h2>
+  </div>
+
+  <p class="facilities-intro">
+    روستای هود به لطف خداوند بزرگ و با مساعدت
+    و همکاری مردم، مسئولان و خیرین عزیز،
+    از امکانات متنوع مذهبی، آموزشی، بهداشتی،
+    ورزشی، رفاهی و خدماتی برخوردار است.
+  </p>
+
+  <div class="facilities-stats">
+
+    <div class="facility-stat">
+      <strong>۷</strong>
+      <span>مسجد</span>
+    </div>
+
+    <div class="facility-stat">
+      <strong>۳</strong>
+      <span>سد و آبگیر مصنوعی</span>
+    </div>
+
+    <div class="facility-stat">
+      <strong>۳</strong>
+      <span>کارواش</span>
+    </div>
+
+    <div class="facility-stat">
+      <strong>🏫</strong>
+      <span>مراکز آموزشی</span>
+    </div>
+
+  </div>
+
+  <div class="facilities-grid">
+
+    <article class="facility-card">
+      <div class="facility-icon">🕌</div>
+      <h3>امکانات مذهبی و فرهنگی</h3>
+      <ul>
+        <li>هفت مسجد ویژه خواهران و برادران</li>
+        <li>کلاس حفظ قرآن با امکانات خوابگاهی در دو ماه تابستان</li>
+      </ul>
+    </article>
+
+    <article class="facility-card">
+      <div class="facility-icon">🏫</div>
+      <h3>امکانات آموزشی</h3>
+      <ul>
+        <li>مدارس ابتدایی دخترانه و پسرانه</li>
+        <li>مدارس راهنمایی دخترانه و پسرانه</li>
+        <li>پیش‌دبستانی</li>
+      </ul>
+    </article>
+
+    <article class="facility-card">
+      <div class="facility-icon">🏥</div>
+      <h3>امکانات بهداشتی</h3>
+      <ul>
+        <li>خانه بهداشت روستا</li>
+      </ul>
+    </article>
+
+    <article class="facility-card">
+      <div class="facility-icon">⚽</div>
+      <h3>امکانات ورزشی و تفریحی</h3>
+      <ul>
+        <li>مجموعه ورزشی</li>
+        <li>پارک محله‌ای</li>
+        <li>دشت‌های تفریحی</li>
+        <li>سه سد و آبگیر مصنوعی</li>
+        <li>گیم‌نت</li>
+      </ul>
+    </article>
+
+    <article class="facility-card">
+      <div class="facility-icon">💧</div>
+      <h3>امکانات زیربنایی</h3>
+      <ul>
+        <li>جاده آسفالته</li>
+        <li>آب لوله‌کشی شیرین</li>
+        <li>برق منطقه‌ای شبانه‌روزی</li>
+        <li>مرکز مخابرات</li>
+      </ul>
+    </article>
+
+    <article class="facility-card">
+      <div class="facility-icon">🏦</div>
+      <h3>خدمات اداری و بانکی</h3>
+      <ul>
+        <li>بانک تجارت</li>
+        <li>کافی‌نت</li>
+        <li>دفتر پیشخوان</li>
+      </ul>
+    </article>
+
+    <article class="facility-card">
+      <div class="facility-icon">🛍️</div>
+      <h3>فروشگاه‌ها و خدمات رفاهی</h3>
+      <ul>
+        <li>چند سوپرمارکت</li>
+        <li>ساندویچی</li>
+        <li>کافه</li>
+        <li>چند آرایشگاه</li>
+        <li>پلاستیک‌فروشی</li>
+        <li>فروشگاه لوازم لوله‌کشی و برقی</li>
+        <li>نانوایی</li>
+      </ul>
+    </article>
+
+    <article class="facility-card">
+      <div class="facility-icon">🔧</div>
+      <h3>خدمات فنی و صنعتی</h3>
+      <ul>
+        <li>دو واحد بلوک‌زنی</li>
+        <li>خدمات خودرویی شامل سه کارواش، آپاراتی، پنچرگیری و تعویض روغن خودرو</li>
+      </ul>
+    </article>
+
+  </div>
+
+</div>
 
 </section>
 <section class="community" id="community">
