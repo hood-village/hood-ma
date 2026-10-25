@@ -3,82 +3,970 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>هود ما | پایگاه فرهنگی و تاریخی روستای هود</title>
 
-<meta name="description" content="معرفی تاریخ، فرهنگ، طبیعت، بزرگان، مساجد و امکانات روستای هود، شهرستان اوز، استان فارس.">
+<meta name="description" content="پایگاه فرهنگی، تاریخی و گردشگری روستای هود، شهرستان اوز، استان فارس. معرفی تاریخچه، بزرگان، مساجد، طبیعت، امکانات و تصاویر هود.">
 
 <meta name="theme-color" content="#173d30">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=4">
+<style>
 
-<script src="script.js?v=4" defer></script>
+/* =========================
+   HOOD MA - VERSION 5
+   Designed by Aref Kiani
+========================= */
+
+:root {
+  --green: #173d30;
+  --green-light: #285744;
+  --gold: #cba66a;
+  --cream: #faf7f0;
+  --sand: #eee4d5;
+  --card: #ffffff;
+  --text: #292e2a;
+  --muted: #69736b;
+  --border: #e5d8c3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  font-family: "Vazirmatn", sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 2;
+}
+
+body.dark {
+  --cream: #111e19;
+  --sand: #1c3026;
+  --card: #20382c;
+  --text: #f3eee3;
+  --muted: #c2c8bf;
+  --border: #385346;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* HEADER */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #173d30;
+  border-bottom: 2px solid var(--gold);
+  box-shadow: 0 5px 20px rgba(0,0,0,.1);
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: auto;
+  min-height: 80px;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 27px;
+  font-weight: 900;
+  color: #f6d99e;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+.nav a {
+  color: #f6f3ed;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.nav a:hover {
+  color: var(--gold);
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-button {
+  background: rgba(255,255,255,.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 19px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 650px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(10,35,25,.82),
+      rgba(15,45,32,.55),
+      rgba(10,35,25,.82)
+    ),
+    url("https://s5.picofile.com/file/8105186168/%D9%85%D8%AD%D9%84%D9%87_%D9%BE%D8%A7%DB%8C%DB%8C%D9%86.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-frame {
+  position: absolute;
+  inset: 25px;
+  border: 2px solid rgba(232,196,132,.5);
+  border-radius: 170px 170px 15px 15px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 70px 20px;
+  max-width: 900px;
+  animation: fadeUp 1s ease both;
+}
+
+.hero-badge {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,.5);
+  background: rgba(255,255,255,.1);
+  padding: 7px 23px;
+  border-radius: 50px;
+  font-size: 13px;
+  backdrop-filter: blur(8px);
+}
+
+.hero h1 {
+  font-size: clamp(55px,9vw,105px);
+  font-weight: 900;
+  color: #f5d89b;
+  line-height: 1.5;
+  margin: 12px 0;
+  text-shadow: 0 5px 25px rgba(0,0,0,.4);
+}
+
+.hero-line {
+  width: 90px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0 auto 25px;
+}
+
+.hero h2 {
+  font-size: clamp(20px,3vw,30px);
+  font-weight: 600;
+}
+
+.hero-location {
+  margin-top: 20px;
+  color: #f1d9a9;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 50px;
+  padding: 11px 30px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+}
+
+.button-gold {
+  background: var(--gold);
+  color: #173d30;
+}
+
+.button-outline {
+  color: white;
+  border: 1px solid var(--gold);
+  background: rgba(0,0,0,.15);
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  color: white;
+  font-size: 32px;
+  z-index: 5;
+  animation: bounce 2s infinite;
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+  padding: 85px 20px;
+}
+
+.container {
+  max-width: 1180px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-label {
+  color: #aa8347;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  font-size: clamp(25px,4vw,37px);
+  color: var(--green);
+  margin: 8px 0;
+}
+
+.dark .section-heading h2 {
+  color: #e5c78d;
+}
+
+.heading-decoration {
+  color: var(--gold);
+  margin: 12px auto;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.about-content h3 {
+  color: var(--green);
+  font-size: 27px;
+}
+
+.dark .about-content h3 {
+  color: #e5c78d;
+}
+
+.about-content p {
+  color: var(--muted);
+}
+
+.small-title {
+  color: #a7834e;
+  font-weight: 700;
+}
+
+.about-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 160px 160px 20px 20px;
+  border: 8px solid var(--card);
+  box-shadow: 0 20px 50px rgba(0,0,0,.12);
+}
+
+.about-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  background: rgba(12,35,24,.85);
+}
+
+/* HISTORY */
+
+.history-section {
+  background: var(--sand);
+}
+
+.history-intro {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 18px;
+  border-right: 5px solid var(--gold);
+  margin-bottom: 35px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+}
+
+.history-card {
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0,0,0,.07);
+  transition: .3s;
+}
+
+.history-card:hover {
+  transform: translateY(-7px);
+}
+
+.card-image,
+.card-placeholder {
+  height: 230px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-placeholder {
+  background: linear-gradient(135deg,#bfa47b,#756045);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 65px;
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.card-content h3 {
+  color: var(--green);
+}
+
+.dark .card-content h3 {
+  color: #e5c78d;
+}
+
+.card-content p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card-label {
+  display: inline-block;
+  background: #eee2cb;
+  color: #75562d;
+  border-radius: 30px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+.other-castles {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.castle-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.castle-tags span {
+  padding: 8px 20px;
+  background: var(--card);
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+}
+
+/* ELDERS */
+
+.elders-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+}
+
+.elder-card {
+  background: var(--card);
+  padding: 35px 25px;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid var(--gold);
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+  transition: .3s;
+}
+
+.elder-card:hover {
+  transform: translateY(-6px);
+}
+
+.elder-photo {
+  width: 160px;
+  height: 185px;
+  margin: 0 auto 25px;
+  background: var(--sand);
+  border: 5px solid var(--gold);
+  border-radius: 90px 90px 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 65px;
+  overflow: hidden;
+}
+
+.elder-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.elder-card h3 {
+  color: var(--green);
+}
+
+.dark .elder-card h3 {
+  color: #e5c78d;
+}
+
+.elder-title {
+  color: #aa8347;
+  font-size: 13px;
+}
+
+.elder-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* NATURE */
+
+.nature-section {
+  background: var(--green);
+  color: white;
+}
+
+.nature-section .section-heading h2 {
+  color: white;
+}
+
+.nature-card {
+  padding: 35px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+}
+
+.nature-icon {
+  font-size: 45px;
+}
+
+.nature-card h3 {
+  color: #f2d499;
+}
+
+/* MOSQUES */
+
+.mosque-box {
+  max-width: 800px;
+  text-align: center;
+  margin: auto;
+  background: var(--card);
+  border: 2px solid var(--gold);
+  border-radius: 100px 100px 20px 20px;
+  padding: 55px 35px;
+}
+
+.mosque-icon {
+  font-size: 70px;
+}
+
+.mosque-box h3 {
+  color: var(--green);
+}
+
+.dark .mosque-box h3 {
+  color: #e5c78d;
+}
+
+/* FACILITIES PREVIEW */
+
+.facilities-preview {
+  background: var(--sand);
+}
+
+.facilities-preview-box {
+  background: var(--card);
+  border-radius: 25px;
+  padding: 45px 30px;
+  text-align: center;
+  border: 1px solid var(--gold);
+  max-width: 850px;
+  margin: auto;
+}
+
+.facilities-preview-box h3 {
+  color: var(--green);
+}
+
+.dark .facilities-preview-box h3 {
+  color: #e5c78d;
+}
+
+.facilities-preview-box p {
+  color: var(--muted);
+}
+
+/* GALLERY */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  height: 260px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #d6c5a4;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .4s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: white;
+  background: linear-gradient(transparent,rgba(0,0,0,.85));
+  padding: 35px 15px 15px;
+  text-align: right;
+}
+
+.gallery-placeholder {
+  height: 260px;
+  border: 2px dashed var(--gold);
+  border-radius: 18px;
+  background: var(--sand);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-placeholder div {
+  font-size: 50px;
+}
+
+.gallery-placeholder small {
+  color: var(--muted);
+}
+
+/* MAP */
+
+.map-section {
+  background: var(--sand);
+}
+
+.map-container {
+  border-radius: 22px;
+  overflow: hidden;
+  border: 5px solid var(--card);
+  box-shadow: 0 15px 45px rgba(0,0,0,.12);
+  outline: 1px solid var(--gold);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 450px;
+  border: none;
+}
+
+.map-info {
+  margin-top: 25px;
+  background: var(--card);
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid var(--gold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.map-location h3 {
+  color: var(--green);
+  margin-top: 0;
+}
+
+.dark .map-location h3 {
+  color: #e5c78d;
+}
+
+.map-location p {
+  margin: 5px 0;
+  color: var(--muted);
+}
+
+.map-btn {
+  display: inline-block;
+  padding: 11px 25px;
+  border-radius: 30px;
+  background: var(--green);
+  color: white;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.map-btn:hover {
+  transform: translateY(-3px);
+  background: var(--green-light);
+}
+
+/* COMMUNITY */
+
+.community-section {
+  background: var(--green);
+}
+
+.community-content {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  color: white;
+}
+
+.community-content span {
+  color: #e9cc92;
+}
+
+.community-content h2 {
+  font-size: 32px;
+  color: #f3d69c;
+}
+
+.community-content small {
+  display: inline-block;
+  margin-top: 20px;
+  color: #d2dccf;
+}
+
+/* FOOTER */
+
+footer {
+  background: #10281e;
+  color: white;
+  text-align: center;
+  padding: 60px 20px 20px;
+  border-top: 4px solid var(--gold);
+}
+
+.footer-content h2 {
+  font-size: 35px;
+  color: #f1d398;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.footer-links a {
+  color: #dce5d8;
+  font-size: 13px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #3a5144;
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  font-size: 13px;
+}
+
+.footer-bottom strong {
+  color: #f1d398;
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.94);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px 20px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.lightbox p {
+  color: white;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 45px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px) {
+  .nav {
+    gap: 12px;
+  }
+
+  .nav a {
+    font-size: 12px;
+  }
+}
+
+@media(max-width:900px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: #173d30;
+    padding: 20px;
+    flex-direction: column;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    font-size: 15px;
+    padding: 7px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-grid,
+  .elders-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .hero {
+    min-height: 580px;
+  }
+
+  .hero-frame {
+    inset: 15px;
+    border-radius: 100px 100px 12px 12px;
+  }
+}
+
+@media(max-width:600px) {
+
+  .header-inner {
+    padding: 10px 15px;
+  }
+
+  .brand {
+    font-size: 23px;
+  }
+
+  .section {
+    padding: 60px 18px;
+  }
+
+  .hero h1 {
+    font-size: 60px;
+  }
+
+  .hero-badge {
+    font-size: 11px;
+  }
+
+  .about-image img {
+    height: 310px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item,
+  .gallery-placeholder {
+    height: 250px;
+  }
+
+  .mosque-box {
+    padding: 45px 20px;
+  }
+
+  .map-container iframe {
+    height: 350px;
+  }
+
+  .map-info {
+    padding: 22px;
+  }
+
+  .community-content h2 {
+    font-size: 25px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+</style>
 
 </head>
-<!-- نقشه روستای هود -->
 
-<section class="section map-section" id="map">
-
-  <div class="container">
-
-    <div class="section-heading">
-      <span class="section-label">LOCATION OF HOOD</span>
-
-      <h2>📍 موقعیت جغرافیایی روستای هود</h2>
-
-      <div class="heading-decoration">◆</div>
-
-      <p>
-        روستای هود در شهرستان اوز استان فارس قرار دارد.
-        موقعیت روستا را روی نقشه مشاهده کنید.
-      </p>
-    </div>
-
-    <div class="map-container">
-
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.004809008785!2d53.66658212602802!3d27.963138964162205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e53c122e29e13d1%3A0xac0f294b3532fde!2sHood%2C%20Fars%20Province%2C%20Iran!5e0!3m2!1sen!2suk!4v1792929716182!5m2!1sen!2suk"
-        width="100%"
-        height="450"
-        style="border:0;"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        title="نقشه روستای هود">
-      </iframe>
-
-    </div>
-
-    <div class="map-info">
-
-      <div class="map-location">
-        <h3>🌴 روستای هود</h3>
-        <p>📍 استان فارس، شهرستان اوز</p>
-        <p>⛰️ ارتفاع از سطح دریا: حدود ۹۵۰ متر</p>
-      </div>
-
-      <div class="map-buttons">
-
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=27.963139%2C53.666582"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="map-btn map-btn-primary">
-
-          📍 مشاهده در گوگل مپ
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
 <body>
 
 <!-- HEADER -->
@@ -88,7 +976,7 @@
 <div class="header-inner">
 
 <a href="#home" class="brand">
-<span class="brand-icon">🌴</span>
+<span>🌴</span>
 <span>هود ما</span>
 </a>
 
@@ -100,17 +988,28 @@
 <a href="#elders">بزرگان هود</a>
 <a href="#mosques">اماکن مذهبی</a>
 <a href="facilities.html">امکانات</a>
-  <a href="#gallery">گالری تصاویر</a>
+<a href="#gallery">گالری تصاویر</a>
+<a href="#map">نقشه هود</a>
 
 </nav>
 
 <div class="header-actions">
 
-<button id="themeToggle" class="icon-button" aria-label="تغییر حالت شب و روز">
+<button
+id="themeToggle"
+class="icon-button"
+type="button"
+aria-label="تغییر حالت شب و روز">
 🌙
 </button>
 
-<button id="menuToggle" class="icon-button menu-toggle" aria-label="باز کردن منو" aria-expanded="false" aria-controls="nav">
+<button
+id="menuToggle"
+class="icon-button menu-toggle"
+type="button"
+aria-label="باز کردن منو"
+aria-expanded="false"
+aria-controls="nav">
 ☰
 </button>
 
@@ -125,15 +1024,12 @@
 
 <section class="hero" id="home">
 
-<div class="hero-overlay"></div>
-
 <div class="hero-frame"></div>
-
 
 <div class="hero-content">
 
 <div class="hero-badge">
-میراث فرهنگی و تاریخی جنوب فارس
+پایگاه فرهنگی و تاریخی روستای هود
 </div>
 
 <h1>هــود مــا</h1>
@@ -164,7 +1060,7 @@
 
 </div>
 
-<a href="#about" class="scroll-down" aria-label="رفتن به بخش معرفی">
+<a href="#about" class="scroll-down" aria-label="مشاهده بخش بعدی">
 ↓
 </a>
 
@@ -178,17 +1074,10 @@
 <div class="container">
 
 <div class="section-heading">
-
 <span class="section-label">WELCOME TO HOOD</span>
-
 <h2>روستای هود را بهتر بشناسیم</h2>
-
 <div class="heading-decoration">◆</div>
-
-<p>
-آشنایی با یکی از روستاهای تاریخی شهرستان اوز
-</p>
-
+<p>آشنایی با یکی از روستاهای تاریخی شهرستان اوز</p>
 </div>
 
 <div class="about-grid">
@@ -199,9 +1088,7 @@
 🌴 دیاری با پیشینه تاریخی
 </span>
 
-<h3>
-هود؛ روستایی در آغوش کوهستان
-</h3>
+<h3>هود؛ روستایی در آغوش کوهستان</h3>
 
 <p>
 روستای هود در شهرستان اوز استان فارس قرار دارد.
@@ -254,17 +1141,10 @@ loading="lazy">
 <div class="container">
 
 <div class="section-heading">
-
 <span class="section-label">HISTORY & HERITAGE</span>
-
 <h2>تاریخ و آثار تاریخی هود</h2>
-
 <div class="heading-decoration">◆</div>
-
-<p>
-نگاهی به گذشته و میراث تاریخی روستا
-</p>
-
+<p>نگاهی به گذشته و میراث تاریخی روستا</p>
 </div>
 
 <div class="history-intro">
@@ -298,16 +1178,12 @@ loading="lazy">
 </div>
 
 <div class="card-content">
-
 <span class="card-label">اثر تاریخی</span>
-
 <h3>قلعه جهان‌آباد (جهنو)</h3>
-
 <p>
 یکی از آثار تاریخی روستای هود که در منابع
 محلی از آن نام برده شده است.
 </p>
-
 </div>
 
 </article>
@@ -318,15 +1194,11 @@ loading="lazy">
 <div class="card-placeholder">🏰</div>
 
 <div class="card-content">
-
 <span class="card-label">اثر تاریخی</span>
-
 <h3>قلعه تمب پس تمب</h3>
-
 <p>
 از قلعه‌های تاریخی معرفی‌شده در منابع محلی هود.
 </p>
-
 </div>
 
 </article>
@@ -337,15 +1209,11 @@ loading="lazy">
 <div class="card-placeholder">🏛️</div>
 
 <div class="card-content">
-
 <span class="card-label">اثر تاریخی</span>
-
 <h3>قلعه زیردژ</h3>
-
 <p>
 یکی دیگر از آثار تاریخی روستای هود.
 </p>
-
 </div>
 
 </article>
@@ -357,10 +1225,8 @@ loading="lazy">
 <h3>دیگر قلعه‌های تاریخی هود</h3>
 
 <div class="castle-tags">
-
 <span>قلعه شهرستان</span>
 <span>قلعه خندقی</span>
-
 </div>
 
 </div>
@@ -377,26 +1243,17 @@ loading="lazy">
 <div class="container">
 
 <div class="section-heading">
-
 <span class="section-label">NOTABLE PEOPLE</span>
-
 <h2>بزرگان و نام‌آوران هود</h2>
-
 <div class="heading-decoration">◆</div>
-
-<p>
-پاسداشت یاد و نام شخصیت‌های تأثیرگذار روستای هود
-</p>
-
+<p>پاسداشت یاد و نام شخصیت‌های تأثیرگذار هود</p>
 </div>
 
 <div class="elders-grid">
 
 <article class="elder-card">
 
-<div class="elder-photo">
-👤
-</div>
+<div class="elder-photo">👤</div>
 
 <h3>فضلعلی قلعه‌تیری هودی</h3>
 
@@ -425,4 +1282,550 @@ loading="lazy">
 
 <p>
 تصاویر و زندگی‌نامه بزرگان دینی روستا
-به‌زودی در این بخش قرار 
+به‌زودی در این بخش قرار می‌گیرد.
+</p>
+
+</article>
+
+
+<article class="elder-card">
+
+<div class="elder-photo">👤</div>
+
+<h3>خیرین و خدمتگزاران هود</h3>
+
+<span class="elder-title">
+شخصیت‌های اجتماعی
+</span>
+
+<p>
+معرفی افرادی که در پیشرفت و آبادانی
+روستای هود نقش داشته‌اند.
+</p>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NATURE -->
+
+<section class="section nature-section" id="nature">
+
+<div class="container">
+
+<div class="section-heading">
+<span class="section-label">NATURE OF HOOD</span>
+<h2>طبیعت و محیط زیست هود</h2>
+<div class="heading-decoration">◆</div>
+</div>
+
+<div class="cards-grid">
+
+<div class="nature-card">
+<div class="nature-icon">🌳</div>
+<h3>پوشش گیاهی</h3>
+<p>
+درخت کنار، بادام کوهی، آویشن، بابونه،
+گلپر و دیگر گیاهان مرتعی از پوشش
+گیاهی منطقه هستند.
+</p>
+</div>
+
+<div class="nature-card">
+<div class="nature-icon">⛰️</div>
+<h3>کوهستان و حیات وحش</h3>
+<p>
+کوهستان‌های اطراف هود از زیستگاه‌های
+گونه‌های مختلف جانوری بوده‌اند.
+</p>
+</div>
+
+<div class="nature-card">
+<div class="nature-icon">💧</div>
+<h3>منابع آب شیرین</h3>
+<p>
+وجود منابع آب شیرین زیرزمینی از
+ویژگی‌های طبیعی مهم روستای هود است.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MOSQUES -->
+
+<section class="section mosques-section" id="mosques">
+
+<div class="container">
+
+<div class="section-heading">
+<span class="section-label">RELIGIOUS PLACES</span>
+<h2>مساجد و اماکن مذهبی هود</h2>
+<div class="heading-decoration">◆</div>
+</div>
+
+<div class="mosque-box">
+
+<div class="mosque-icon">🕌</div>
+
+<h3>میراث مذهبی روستای هود</h3>
+
+<p>
+مساجد هود از مراکز مهم مذهبی، فرهنگی و اجتماعی
+روستا هستند.
+</p>
+
+<p>
+بر اساس اطلاعات سال ۱۳۹۲، روستا دارای هفت مسجد
+ویژه خواهران و برادران بوده است.
+</p>
+
+<p>
+نام، تصاویر و تاریخچه مساجد به‌تدریج
+به این بخش اضافه خواهد شد.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FACILITIES -->
+
+<section class="section facilities-preview" id="facilities">
+
+<div class="container">
+
+<div class="section-heading">
+<span class="section-label">VILLAGE FACILITIES</span>
+<h2>امکانات و خدمات روستای هود</h2>
+<div class="heading-decoration">◆</div>
+</div>
+
+<div class="facilities-preview-box">
+
+<h3>🏡 امکانات روستای هود</h3>
+
+<p>
+روستای هود به لطف خداوند بزرگ و با همکاری
+مردم، خیرین و مسئولان از امکانات مذهبی،
+آموزشی، بهداشتی، ورزشی، رفاهی و خدماتی
+مختلفی برخوردار است.
+</p>
+
+<p>
+برای مشاهده فهرست کامل امکانات روستا
+روی دکمه زیر کلیک کنید.
+</p>
+
+<a href="facilities.html" class="button button-gold">
+مشاهده تمام امکانات روستا
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="section gallery-section" id="gallery">
+
+<div class="container">
+
+<div class="section-heading">
+<span class="section-label">PHOTO GALLERY</span>
+<h2>گالری تصاویر روستای هود</h2>
+<div class="heading-decoration">◆</div>
+<p>تصاویری از تاریخ و زیبایی‌های روستای هود</p>
+</div>
+
+<div class="gallery-grid">
+
+<button class="gallery-item" type="button">
+
+<img
+src="https://s5.picofile.com/file/8105186168/%D9%85%D8%AD%D9%84%D9%87_%D9%BE%D8%A7%DB%8C%DB%8C%D9%86.jpg"
+alt="محله پایین روستای هود"
+loading="lazy">
+
+<span>محله پایین هود</span>
+
+</button>
+
+
+<button class="gallery-item" type="button">
+
+<img
+src="https://s5.picofile.com/file/8106535884/%D9%82%D9%84%D8%B9%D9%87_%D8%AC%D9%87%D9%86%D9%88.jpg"
+alt="قلعه تاریخی جهنو"
+loading="lazy">
+
+<span>قلعه تاریخی جهنو</span>
+
+</button>
+
+
+<div class="gallery-placeholder">
+<div>🌴</div>
+<p>تصاویر طبیعت هود</p>
+<small>به‌زودی</small>
+</div>
+
+<div class="gallery-placeholder">
+<div>🕌</div>
+<p>تصاویر مساجد هود</p>
+<small>به‌زودی</small>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GOOGLE MAP -->
+
+<section class="section map-section" id="map">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="section-label">LOCATION OF HOOD</span>
+
+<h2>📍 موقعیت جغرافیایی روستای هود</h2>
+
+<div class="heading-decoration">◆</div>
+
+<p>
+روستای هود در شهرستان اوز استان فارس قرار دارد.
+موقعیت روستا را روی نقشه مشاهده کنید.
+</p>
+
+</div>
+
+<div class="map-container">
+
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.004809008785!2d53.66658212602802!3d27.963138964162205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e53c122e29e13d1%3A0xac0f294b3532fde!2sHood%2C%20Fars%20Province%2C%20Iran!5e0!3m2!1sen!2suk!4v1792929716182!5m2!1sen!2suk"
+width="100%"
+height="450"
+style="border:0;"
+allowfullscreen
+loading="lazy"
+referrerpolicy="strict-origin-when-cross-origin"
+title="نقشه روستای هود">
+</iframe>
+
+</div>
+
+<div class="map-info">
+
+<div class="map-location">
+
+<h3>🌴 روستای هود</h3>
+
+<p>📍 استان فارس، شهرستان اوز</p>
+
+<p>⛰️ ارتفاع از سطح دریا: حدود ۹۵۰ متر</p>
+
+</div>
+
+<a
+href="https://www.google.com/maps/search/?api=1&query=27.963139%2C53.666582"
+target="_blank"
+rel="noopener noreferrer"
+class="map-btn">
+
+📍 مشاهده در گوگل مپ
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- COMMUNITY -->
+
+<section class="section community-section" id="community">
+
+<div class="container">
+
+<div class="community-content">
+
+<span>❤️ میراث ماندگار هود</span>
+
+<h2>هود را با خاطرات شما زنده نگه می‌داریم</h2>
+
+<p>
+هر کوچه، هر خانه قدیمی و هر تصویر از هود،
+داستانی برای گفتن دارد.
+</p>
+
+<p>
+هدف ما ثبت تاریخ، فرهنگ و خاطرات مردم هود
+برای نسل‌های آینده است.
+</p>
+
+<small>
+بخش ارسال خاطرات و تصاویر اهالی در آینده راه‌اندازی خواهد شد.
+</small>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-content">
+
+<h2>🌴 هود ما</h2>
+
+<p>
+پایگاه فرهنگی، تاریخی و گردشگری روستای هود
+</p>
+
+<p>
+📍 شهرستان اوز | استان فارس
+</p>
+
+<div class="footer-links">
+
+<a href="#home">صفحه اصلی</a>
+<a href="#history">تاریخچه</a>
+<a href="#elders">بزرگان هود</a>
+<a href="facilities.html">امکانات</a>
+<a href="#gallery">تصاویر</a>
+<a href="#map">نقشه هود</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+© ۱۴۰۵ هود ما | تمامی حقوق محفوظ است
+</p>
+
+<p>
+طراحی و توسعه توسط
+<strong>عارف کیانی</strong>
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- IMAGE VIEWER -->
+
+<div
+class="lightbox"
+id="lightbox"
+role="dialog"
+aria-modal="true"
+aria-label="نمایش تصویر"
+aria-hidden="true">
+
+<button
+class="lightbox-close"
+id="closeLightbox"
+type="button"
+aria-label="بستن تصویر">
+×
+</button>
+
+<img id="lightboxImage" src="" alt="">
+
+<p id="lightboxCaption"></p>
+
+</div>
+
+
+<script>
+
+// HOOD MA V5
+// Designed by Aref Kiani
+
+// MOBILE MENU
+
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.getElementById("nav");
+
+menuToggle.addEventListener("click", () => {
+
+  const isOpen = nav.classList.toggle("open");
+
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+
+  menuToggle.setAttribute(
+    "aria-expanded",
+    String(isOpen)
+  );
+
+});
+
+document.querySelectorAll(".nav a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    nav.classList.remove("open");
+
+    menuToggle.textContent = "☰";
+
+    menuToggle.setAttribute("aria-expanded", "false");
+
+  });
+
+});
+
+
+// DARK MODE
+
+const themeToggle = document.getElementById("themeToggle");
+
+try {
+
+  const savedTheme = localStorage.getItem("hood-theme");
+
+  if (savedTheme === "dark") {
+
+    document.body.classList.add("dark");
+
+    themeToggle.textContent = "☀️";
+
+  }
+
+} catch (error) {
+  // Site remains functional if local storage is unavailable.
+}
+
+themeToggle.addEventListener("click", () => {
+
+  const isDark = document.body.classList.toggle("dark");
+
+  themeToggle.textContent = isDark ? "☀️" : "🌙";
+
+  try {
+
+    localStorage.setItem(
+      "hood-theme",
+      isDark ? "dark" : "light"
+    );
+
+  } catch (error) {
+    // Theme still works for the current visit.
+  }
+
+});
+
+
+// IMAGE GALLERY
+
+const lightbox = document.getElementById("lightbox");
+
+const lightboxImage = document.getElementById("lightboxImage");
+
+const lightboxCaption = document.getElementById("lightboxCaption");
+
+const closeLightbox = document.getElementById("closeLightbox");
+
+let previousFocus = null;
+
+function closeGallery() {
+
+  lightbox.classList.remove("active");
+
+  lightbox.setAttribute("aria-hidden", "true");
+
+  lightboxImage.removeAttribute("src");
+
+  document.body.style.overflow = "";
+
+  if (previousFocus) {
+    previousFocus.focus();
+  }
+
+}
+
+document.querySelectorAll(".gallery-item").forEach(item => {
+
+  item.addEventListener("click", () => {
+
+    const image = item.querySelector("img");
+
+    if (!image) return;
+
+    previousFocus = document.activeElement;
+
+    lightboxImage.src = image.src;
+
+    lightboxImage.alt = image.alt;
+
+    lightboxCaption.textContent = image.alt;
+
+    lightbox.classList.add("active");
+
+    lightbox.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+
+    closeLightbox.focus();
+
+  });
+
+});
+
+closeLightbox.addEventListener("click", closeGallery);
+
+lightbox.addEventListener("click", event => {
+
+  if (event.target === lightbox) {
+    closeGallery();
+  }
+
+});
+
+document.addEventListener("keydown", event => {
+
+  if (!lightbox.classList.contains("active")) return;
+
+  if (event.key === "Escape") {
+    closeGallery();
+  }
+
+  if (event.key === "Tab") {
+    event.preventDefault();
+    closeLightbox.focus();
+  }
+
+});
+
+</script>
+
+</body>
+</html>
