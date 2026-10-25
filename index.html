@@ -1209,6 +1209,29 @@ footer {
     background: #385346;
   }
 }
+   /* Fix Mobile More Menu */
+
+@media (max-width: 900px) {
+
+  .mobile-bottom-nav {
+    z-index: 2000;
+  }
+
+  .mobile-more-menu {
+    z-index: 2001;
+    bottom: calc(75px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-more-menu[hidden] {
+    display: none !important;
+  }
+
+  .mobile-more-menu:not([hidden]) {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+}
 </style>
    
 
@@ -2069,31 +2092,53 @@ document.addEventListener("keydown", event => {
   }
 
 });
-// MOBILE MORE MENU
+// MOBILE MORE MENU - FIXED
 
-const moreMenuButton = document.getElementById("moreMenuButton");
+const moreButton = document.getElementById("moreMenuButton");
+const morePanel = document.getElementById("mobileMoreMenu");
+const moreCloseButton = document.getElementById("closeMoreMenu");
 
-const mobileMoreMenu = document.getElementById("mobileMoreMenu");
+if (moreButton && morePanel) {
 
-const closeMoreMenu = document.getElementById("closeMoreMenu");
+  function closeMobileMore() {
+    morePanel.hidden = true;
+    moreButton.setAttribute("aria-expanded", "false");
+  }
 
-function hideMoreMenu() {
-  mobileMoreMenu.hidden = true;
-  moreMenuButton.setAttribute("aria-expanded", "false");
+  moreButton.addEventListener("click", function(event) {
+    event.stopPropagation();
+
+    const isClosed = morePanel.hidden;
+
+    morePanel.hidden = !isClosed;
+    moreButton.setAttribute("aria-expanded", String(isClosed));
+  });
+
+  if (moreCloseButton) {
+    moreCloseButton.addEventListener("click", closeMobileMore);
+  }
+
+  morePanel.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", closeMobileMore);
+  });
+
+  document.addEventListener("click", function(event) {
+    if (
+      !morePanel.hidden &&
+      !morePanel.contains(event.target) &&
+      !moreButton.contains(event.target)
+    ) {
+      closeMobileMore();
+    }
+  });
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      closeMobileMore();
+    }
+  });
+
 }
-
-moreMenuButton.addEventListener("click", () => {
-
-  const shouldOpen = mobileMoreMenu.hidden;
-
-  mobileMoreMenu.hidden = !shouldOpen;
-
-  moreMenuButton.setAttribute(
-    "aria-expanded",
-    String(shouldOpen)
-  );
-
-});
 
 closeMoreMenu.addEventListener("click", hideMoreMenu);
 
