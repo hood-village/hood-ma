@@ -949,8 +949,268 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+/* =====================================
+   HOOD MA V6 - MOBILE FIRST ENHANCEMENTS
+===================================== */
 
+/* Bottom Navigation */
+
+.mobile-bottom-nav {
+  display: none;
+}
+
+.mobile-more-menu {
+  display: none;
+}
+
+@media (max-width: 900px) {
+
+  body {
+    padding-bottom: calc(75px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2000;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    background: #ffffff;
+    border-top: 1px solid #e8e3d9;
+
+    box-shadow: 0 -5px 25px rgba(0,0,0,.08);
+
+    padding: 7px 5px calc(7px + env(safe-area-inset-bottom));
+  }
+
+  .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 2px;
+
+    background: transparent;
+    border: none;
+
+    color: #777;
+
+    font-family: Vazirmatn, sans-serif;
+    font-size: 10px;
+
+    min-height: 54px;
+    padding: 4px 2px;
+
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .bottom-icon {
+    font-size: 25px;
+    line-height: 1.2;
+  }
+
+  .bottom-nav-item:hover,
+  .bottom-nav-item.active {
+    color: #173d30;
+  }
+
+  .bottom-nav-item.active .bottom-icon {
+    color: #b68a48;
+  }
+
+  /* More Menu */
+
+  .mobile-more-menu:not([hidden]) {
+    display: flex;
+  }
+
+  .mobile-more-menu {
+    position: fixed;
+    bottom: calc(75px + env(safe-area-inset-bottom));
+    right: 12px;
+    left: 12px;
+
+    z-index: 1999;
+
+    flex-direction: column;
+
+    background: #ffffff;
+    border: 1px solid #e5d8c3;
+    border-radius: 22px;
+
+    padding: 18px;
+
+    box-shadow: 0 -10px 35px rgba(0,0,0,.15);
+
+    max-height: 65vh;
+    overflow-y: auto;
+  }
+
+  .more-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+
+    border-bottom: 1px solid #eee;
+  }
+
+  .more-menu-header strong {
+    color: #173d30;
+    font-size: 16px;
+  }
+
+  .more-menu-header button {
+    border: none;
+    background: #f3eee5;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  .mobile-more-menu a {
+    padding: 12px 10px;
+    color: #333;
+    font-size: 14px;
+    border-bottom: 1px solid #f2eee7;
+  }
+
+  .mobile-more-menu a:last-child {
+    border-bottom: none;
+  }
+
+  /* Header */
+
+  .header-inner {
+    min-height: 65px;
+    padding: 8px 16px;
+  }
+
+  /* Hero */
+
+  .hero {
+    min-height: 510px;
+  }
+
+  .hero-frame {
+    inset: 12px;
+    border-radius: 85px 85px 12px 12px;
+  }
+
+  .hero-content {
+    padding: 50px 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 12vw, 70px);
+  }
+
+  .hero h2 {
+    font-size: 20px;
+  }
+
+  .hero-location {
+    font-size: 13px;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .hero-buttons .button {
+    padding: 10px 19px;
+    font-size: 12px;
+  }
+
+  /* Sections */
+
+  .section {
+    padding: 55px 16px;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .section-heading h2 {
+    font-size: 25px;
+  }
+
+  /* Cards */
+
+  .history-card,
+  .elder-card,
+  .nature-card {
+    border-radius: 18px;
+  }
+
+  .history-intro {
+    padding: 22px;
+  }
+
+  /* Images */
+
+  .about-image {
+    border-radius: 100px 100px 16px 16px;
+  }
+
+  .about-image img {
+    height: 300px;
+  }
+
+  /* Map */
+
+  .map-container {
+    border-radius: 16px;
+  }
+
+  .map-container iframe {
+    height: 360px;
+  }
+
+  /* Footer */
+
+  footer {
+    padding-bottom: 35px;
+  }
+
+  /* Dark mode */
+
+  body.dark .mobile-bottom-nav,
+  body.dark .mobile-more-menu {
+    background: #20382c;
+    border-color: #385346;
+  }
+
+  body.dark .bottom-nav-item {
+    color: #d3d9d0;
+  }
+
+  body.dark .bottom-nav-item.active {
+    color: #f3d69c;
+  }
+
+  body.dark .mobile-more-menu a,
+  body.dark .more-menu-header strong {
+    color: #f3eee3;
+  }
+
+  body.dark .more-menu-header button {
+    color: white;
+    background: #385346;
+  }
+}
 </style>
+   
 
 </head>
 
@@ -1809,8 +2069,122 @@ document.addEventListener("keydown", event => {
   }
 
 });
+// MOBILE MORE MENU
 
+const moreMenuButton = document.getElementById("moreMenuButton");
+
+const mobileMoreMenu = document.getElementById("mobileMoreMenu");
+
+const closeMoreMenu = document.getElementById("closeMoreMenu");
+
+function hideMoreMenu() {
+  mobileMoreMenu.hidden = true;
+  moreMenuButton.setAttribute("aria-expanded", "false");
+}
+
+moreMenuButton.addEventListener("click", () => {
+
+  const shouldOpen = mobileMoreMenu.hidden;
+
+  mobileMoreMenu.hidden = !shouldOpen;
+
+  moreMenuButton.setAttribute(
+    "aria-expanded",
+    String(shouldOpen)
+  );
+
+});
+
+closeMoreMenu.addEventListener("click", hideMoreMenu);
+
+document.querySelectorAll(".mobile-more-menu a").forEach(link => {
+  link.addEventListener("click", hideMoreMenu);
+});
+
+document.querySelectorAll(".mobile-bottom-nav a").forEach(link => {
+  link.addEventListener("click", hideMoreMenu);
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") hideMoreMenu();
+});
+
+document.addEventListener("click", event => {
+
+  if (
+    !mobileMoreMenu.hidden &&
+    !mobileMoreMenu.contains(event.target) &&
+    !moreMenuButton.contains(event.target)
+  ) {
+    hideMoreMenu();
+  }
+
+});
 </script>
+<!-- MOBILE BOTTOM NAVIGATION -->
 
+<nav class="mobile-bottom-nav" aria-label="دسترسی سریع موبایل">
+
+  <a href="#home" class="bottom-nav-item active">
+    <span class="bottom-icon">⌂</span>
+    <span>خانه</span>
+  </a>
+
+  <a href="#history" class="bottom-nav-item">
+    <span class="bottom-icon">▤</span>
+    <span>تاریخچه</span>
+  </a>
+
+  <a href="#gallery" class="bottom-nav-item">
+    <span class="bottom-icon">▧</span>
+    <span>تصاویر</span>
+  </a>
+
+  <a href="#map" class="bottom-nav-item">
+    <span class="bottom-icon">⌖</span>
+    <span>نقشه</span>
+  </a>
+
+  <button
+    type="button"
+    class="bottom-nav-item"
+    id="moreMenuButton"
+    aria-expanded="false"
+    aria-controls="mobileMoreMenu">
+
+    <span class="bottom-icon">☰</span>
+    <span>بیشتر</span>
+
+  </button>
+
+</nav>
+
+
+<!-- MORE MENU -->
+
+<div class="mobile-more-menu" id="mobileMoreMenu" hidden>
+
+  <div class="more-menu-header">
+    <strong>بخش‌های هود ما</strong>
+
+    <button
+      type="button"
+      id="closeMoreMenu"
+      aria-label="بستن منو">
+      ✕
+    </button>
+  </div>
+
+  <a href="#about">معرفی روستای هود</a>
+
+  <a href="#elders">بزرگان و نام‌آوران هود</a>
+
+  <a href="#mosques">مساجد و اماکن مذهبی</a>
+
+  <a href="#nature">طبیعت هود</a>
+
+  <a href="facilities.html">امکانات روستا</a>
+
+</div>
 </body>
 </html>
